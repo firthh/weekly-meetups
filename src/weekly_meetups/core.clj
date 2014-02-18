@@ -1,6 +1,14 @@
-(ns weekly-meetups.core)
+(ns weekly-meetups.core
+  (require [clojure.data.json :as json])
+  (:gen-class))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+
+(def meetup-url 
+  "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s")
+
+(defn -main [api-key]
+  (-> (format meetup-url api-key "clj-bne") 
+      slurp
+      json/read-str
+      (get "results")
+      ))
