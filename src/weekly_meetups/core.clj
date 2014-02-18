@@ -6,17 +6,22 @@
         [clj-time.local])
   (:gen-class))
 
+;;configuration
+(def number-of-weeks 1)
 
 (def meetups
   ["clj-bne" "qldjvm"])
 
+;;should need to change this
 (def meetup-url 
   "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s")
 
+
+;;hacky code that does stuff
 (defn- in-a-week? [event]
   (before? 
    (from-long (:time event)) 
-   (plus (now) (weeks 5)))
+   (plus (now) (weeks number-of-weeks)))
   )
 
 (defn- get-meetup-events [api-key meetup]
@@ -41,7 +46,9 @@
   { 
    :name (:name event)
    :group_name (:name (:group event))
-   :time (format-time (:time event))})
+   :time (format-time (:time event))
+   :url (:event_url event)
+   })
 
 (defn -main [api-key]
   (map
