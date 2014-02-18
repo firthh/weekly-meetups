@@ -12,15 +12,14 @@
   "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s")
 
 (defn- in-a-week? [event]
-  (before? (from-long (get event "time")) (plus (now) (weeks 3)))
+  (before? (from-long (:time event)) (plus (now) (weeks 3)))
   )
 
 (defn- get-meetup-events [api-key meetup]
   (-> (format meetup-url api-key meetup) 
       slurp
-      json/read-str
-      (get "results")
-      ))
+      (json/read-str :key-fn keyword)
+      :results))
 
 (defn- get-all-meetups [api-key]
   (->>
