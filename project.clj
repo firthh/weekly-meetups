@@ -5,5 +5,6 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/data.json "0.2.4"]
-                 [clj-time "0.6.0"]]
+                 [clj-time "0.6.0"]
+                 [de.ubercode.clostache/clostache "1.3.1"]]
   :main weekly-meetups.core)

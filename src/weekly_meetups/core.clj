@@ -3,7 +3,8 @@
   (:use [clj-time.core]
         [clj-time.coerce]
         [clj-time.format]
-        [clj-time.local])
+        [clj-time.local]
+        [clostache.parser])
   (:gen-class))
 
 ;;configuration
@@ -22,6 +23,14 @@
 (def meetup-url 
   "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s")
 
+(def events-template
+  (str
+   "{{#events}}"
+   "<div>"
+   "<b>{{group_name}}</b></br>"
+   "{{time}} - <a href='{{url}}'>{{name}}</a>"
+   "</div>"
+   "{{/events}}"))
 
 ;;hacky code that does stuff
 (defn- in-a-week? [event]
@@ -50,8 +59,12 @@
    :time (format-time (:time event))
    :url (:event_url event)})
 
+(defn- events-to-html [events]
+  (render events-template {:events events}))
+
 (defn -main [api-key]
   (->> (get-all-meetups api-key)
        (filter in-a-week?)
-       (map format-event)))
+       (map format-event)
+       events-to-html))
 
