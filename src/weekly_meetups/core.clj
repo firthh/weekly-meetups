@@ -24,13 +24,10 @@
   "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s")
 
 (def events-template
-  (str
-   "{{#events}}"
-   "<div>"
-   "<b>{{group_name}}</b></br>"
-   "{{time}} - <a href='{{url}}'>{{name}}</a>"
-   "</div>"
-   "{{/events}}"))
+  (clojure.string/replace 
+   (slurp "resources/events.mustache")
+   "\n"
+   ""))
 
 ;;hacky code that does stuff
 (defn- in-a-week? [event]
@@ -50,8 +47,8 @@
 
 (defn- format-time [time]
    (unparse
-          (with-zone (formatters :rfc822) (default-time-zone))
-          (from-long time)))
+    (with-zone (formatters :rfc822) (default-time-zone))
+    (from-long time)))
 
 (defn- format-event [event]
   {:name (:name event)
