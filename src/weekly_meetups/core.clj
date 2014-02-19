@@ -10,7 +10,14 @@
 (def number-of-weeks 1)
 
 (def meetups
-  ["clj-bne" "qldjvm"])
+  [
+   "clj-bne" 
+   "qldjvm"
+   "AWS-Brisbane"
+   "Brisbane-Net-User-Group"
+   "Brisbane-Functional-Programming-Group"
+   "Brisbane-Hacks-for-Humanity"
+])
 
 ;;should need to change this
 (def meetup-url 
