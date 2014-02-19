@@ -4,7 +4,7 @@ A Clojure library designed to ... well, that part is up to you.
 
 ## Usage
 
-'lein run YOUR_MEETUP_API_KEY_GOES_HERE
+`lein run YOUR_MEETUP_API_KEY_GOES_HERE
 
 ## License
 
