@@ -16,8 +16,7 @@
    "AWS-Brisbane"
    "Brisbane-Net-User-Group"
    "Brisbane-Functional-Programming-Group"
-   "Brisbane-Hacks-for-Humanity"
-])
+   "Brisbane-Hacks-for-Humanity"])
 
 ;;should need to change this
 (def meetup-url 
@@ -28,8 +27,7 @@
 (defn- in-a-week? [event]
   (before? 
    (from-long (:time event)) 
-   (plus (now) (weeks number-of-weeks)))
-  )
+   (plus (now) (weeks number-of-weeks))))
 
 (defn- get-meetup-events [api-key meetup]
   (-> (format meetup-url api-key meetup) 
@@ -38,29 +36,22 @@
       :results))
 
 (defn- get-all-meetups [api-key]
-  (->>
-   (map #(get-meetup-events api-key %) meetups)
-   flatten
-   ))
+  (->> (map #(get-meetup-events api-key %) meetups)
+       flatten))
 
 (defn- format-time [time]
    (unparse
           (with-zone (formatters :rfc822) (default-time-zone))
-          (from-long time)
-          ))
+          (from-long time)))
 
 (defn- format-event [event]
-  { 
-   :name (:name event)
+  {:name (:name event)
    :group_name (:name (:group event))
    :time (format-time (:time event))
-   :url (:event_url event)
-   })
+   :url (:event_url event)})
 
 (defn -main [api-key]
-  (map
-   format-event
-   (filter 
-    in-a-week?
-    (get-all-meetups api-key))))
+  (->> (get-all-meetups api-key)
+       (filter in-a-week?)
+       (map format-event)))
 
