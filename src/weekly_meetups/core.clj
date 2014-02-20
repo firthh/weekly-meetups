@@ -17,7 +17,11 @@
    "AWS-Brisbane"
    "Brisbane-Net-User-Group"
    "Brisbane-Functional-Programming-Group"
-   "Brisbane-Hacks-for-Humanity"])
+   "Brisbane-Hacks-for-Humanity"
+   "BrisRuby"
+   "BrisJS"
+   "Agile-Brisbane"
+   "hackbne"])
 
 ;;should need to change this
 (def meetup-url 
@@ -51,15 +55,18 @@
    :time (format-time (:time event))
    :url (:event_url event)})
 
-(defn- events-to-html [events]
+(defn events-to-html [events]
   (render-resource events-template {:events events}))
+
+(defn get-events [api-key]
+  (->>(get-all-meetups api-key)
+      (map format-event)))
 
 (defn -main 
   ([api-key] 
      (-main api-key output-file))
   ([api-key output-file-name]
-     (->> (get-all-meetups api-key)
-          (map format-event)
+     (->> (get-events api-key)
           events-to-html
           (spit output-file-name))))
 
