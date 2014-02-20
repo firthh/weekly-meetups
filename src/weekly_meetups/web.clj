@@ -5,7 +5,7 @@
             [compojure.handler :as handler]))
 
 (defroutes app-routes
-  (GET "/:api-key" [api-key] (core/events-to-html (core/get-events api-key))))
+  (GET "/:api-key" [api-key] (core/events-to-html (core/get-events api-key :brisbane))))
 
 (def app
   (handler/site app-routes))

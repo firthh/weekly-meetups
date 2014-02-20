@@ -11,17 +11,19 @@
 (def number-of-weeks 1)
 
 (def meetups
-  [
-   "clj-bne" 
-   "qldjvm"
-   "AWS-Brisbane"
-   "Brisbane-Net-User-Group"
-   "Brisbane-Functional-Programming-Group"
-   "Brisbane-Hacks-for-Humanity"
-   "BrisRuby"
-   "BrisJS"
-   "Agile-Brisbane"
-   "hackbne"])
+  {:brisbane ["clj-bne" 
+              "qldjvm"
+              "AWS-Brisbane"
+              "Brisbane-Net-User-Group"
+              "Brisbane-Functional-Programming-Group"
+              "Brisbane-Hacks-for-Humanity"
+              "BrisRuby"
+              "BrisJS"
+              "Agile-Brisbane"
+              "hackbne"]
+   :sydney []
+   :melbourne []
+   :perth []})
 
 ;;should need to change this
 (def meetup-url 
@@ -40,8 +42,8 @@
       (json/read-str :key-fn keyword)
       :results))
 
-(defn- get-all-meetups [api-key]
-  (->> (map #(get-meetup-events api-key %) meetups)
+(defn- get-all-meetups [api-key city]
+  (->> (map #(get-meetup-events api-key %) (city meetups))
        flatten))
 
 (defn- format-time [time]
@@ -58,15 +60,17 @@
 (defn events-to-html [events]
   (render-resource events-template {:events events}))
 
-(defn get-events [api-key]
-  (->>(get-all-meetups api-key)
+(defn get-events [api-key city]
+  (->>(get-all-meetups api-key city)
       (map format-event)))
 
 (defn -main 
   ([api-key] 
-     (-main api-key output-file))
-  ([api-key output-file-name]
-     (->> (get-events api-key)
+     (-main api-key "brisbane" output-file))
+  ([api-key city]
+     (-main api-key city output-file))
+  ([api-key city output-file-name]
+     (->> (get-events api-key (keyword city))
           events-to-html
           (spit output-file-name))))
 
