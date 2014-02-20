@@ -21,7 +21,7 @@
 
 ;;should need to change this
 (def meetup-url 
-  "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s&time=01012014,1w")
+  "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s&time=01012014,%dw")
 
 (def events-template
   (clojure.string/replace 
@@ -32,7 +32,7 @@
 ;;hacky code that does stuff
 
 (defn- get-meetup-events [api-key meetup]
-  (-> (format meetup-url api-key meetup) 
+  (-> (format meetup-url api-key meetup number-of-weeks) 
       slurp
       (json/read-str :key-fn keyword)
       :results))
