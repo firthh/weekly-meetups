@@ -26,8 +26,10 @@
 (def events-template
   "events.mustache")
 
-;;hacky code that does stuff
+(def output-file
+  "output.html")
 
+;;hacky code that does stuff
 (defn- get-meetup-events [api-key meetup]
   (-> (format meetup-url api-key meetup number-of-weeks) 
       slurp
@@ -52,9 +54,12 @@
 (defn- events-to-html [events]
   (render-resource events-template {:events events}))
 
-(defn -main [api-key]
-  (->> (get-all-meetups api-key)
-       (map format-event)
-       events-to-html
-       (spit "output.html")))
+(defn -main 
+  ([api-key] 
+     (-main api-key output-file))
+  ([api-key output-file-name]
+     (->> (get-all-meetups api-key)
+          (map format-event)
+          events-to-html
+          (spit output-file-name))))
 
