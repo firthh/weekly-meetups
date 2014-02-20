@@ -6,9 +6,13 @@ A Clojure application to get information about upcoming meetups that you care ab
 
 `lein run YOUR_MEETUP_API_KEY`
 
-OR
+or
 
-`lein run YOUR_MEETUP_API_KEY HTML_OUTPUT_FILE_NAME`
+`lein run YOUR_MEETUP_API_KEY CITY`
+
+or
+
+`lein run YOUR_MEETUP_API_KEY CITY HTML_OUTPUT_FILE_NAME`
 
 Your api key can be found [here](https://secure.meetup.com/meetup_api/key/g)
 The output file name defaults to output.html
