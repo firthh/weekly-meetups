@@ -24,10 +24,7 @@
   "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s&time=01012014,%dw")
 
 (def events-template
-  (clojure.string/replace 
-   (slurp "resources/events.mustache")
-   "\n"
-   ""))
+  "events.mustache")
 
 ;;hacky code that does stuff
 
@@ -53,10 +50,11 @@
    :url (:event_url event)})
 
 (defn- events-to-html [events]
-  (render events-template {:events events}))
+  (render-resource events-template {:events events}))
 
 (defn -main [api-key]
   (->> (get-all-meetups api-key)
        (map format-event)
-       events-to-html))
+       events-to-html
+       (spit "output.html")))
 
