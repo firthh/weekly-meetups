@@ -6,5 +6,10 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/data.json "0.2.4"]
                  [clj-time "0.6.0"]
-                 [de.ubercode.clostache/clostache "1.3.1"]]
-  :main weekly-meetups.core)
+                 [de.ubercode.clostache/clostache "1.3.1"]
+                 [ring "1.1.8"]
+                 [ring/ring-jetty-adapter "1.1.6"]
+                 [compojure "1.1.5"]]
+  :main weekly-meetups.core
+  :ring {:handler weekly-meetups.web/app}
+  :plugins [[lein-ring "0.8.5"]])
