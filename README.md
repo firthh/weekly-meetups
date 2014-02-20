@@ -1,6 +1,6 @@
 # weekly-meetups
 
-A Clojure application to get information about upcoming meetups that you care about.
+A Clojure application to get information about upcoming meetups that you care about. It will output a html string to do with what you will.
 
 ## Usage
 
@@ -15,7 +15,7 @@ The output file name defaults to output.html
 
 ##To Do
 
-* Output some nice strings to copy paste into emails
+* Output iCal or other calander format
 
 ## License
 
