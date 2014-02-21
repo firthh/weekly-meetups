@@ -17,7 +17,7 @@ or
 Your api key can be found [here](https://secure.meetup.com/meetup_api/key/g).
 
 The `OUTPUT_FILE_NAME` defaults to `output.html`
-The `CITY` defaults 
+The `CITY` defaults to `brisbane`
 
 ##To Do
 
