@@ -20,7 +20,10 @@
               "BrisRuby"
               "BrisJS"
               "Agile-Brisbane"
-              "hackbne"]
+              "hackbne"
+              "Lean-Business-Strategies"
+              "Brisbane-Python-User-Group"
+              "Brisbane-Azure-User-Group"]
    :sydney []
    :melbourne []
    :perth []})
