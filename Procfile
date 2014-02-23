@@ -1,1 +1,1 @@
-web: java -jar target/weekly-meetups.jar $PORT
+web: java -jar target/weekly-meetups.jar
