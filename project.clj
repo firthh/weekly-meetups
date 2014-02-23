@@ -11,5 +11,7 @@
                  [ring/ring-jetty-adapter "1.1.6"]
                  [compojure "1.1.5"]]
   :main weekly-meetups.core
+  :uberjar-name "weekly-meetups.jar"
   :ring {:handler weekly-meetups.web/app}
+  :profiles {:uberjar {:main weekly-meetups.web, :aot :all}}
   :plugins [[lein-ring "0.8.5"]])
