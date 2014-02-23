@@ -1,1 +1,1 @@
-lein uberjar
+lein ring uberjar
