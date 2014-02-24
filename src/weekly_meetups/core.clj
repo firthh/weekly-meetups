@@ -23,7 +23,9 @@
               "hackbne"
               "Lean-Business-Strategies"
               "Brisbane-Python-User-Group"
-              "Brisbane-Azure-User-Group"]
+              "Brisbane-Azure-User-Group"
+              "The-Brisbane-Web-Design-Meetup-Group"
+              "UXBrisbane"]
    :sydney []
    :melbourne []
    :perth []})
