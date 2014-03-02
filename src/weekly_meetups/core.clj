@@ -25,7 +25,9 @@
               "Brisbane-Python-User-Group"
               "Brisbane-Azure-User-Group"
               "The-Brisbane-Web-Design-Meetup-Group"
-              "UXBrisbane"]
+              "UXBrisbane"
+              "Devops-Brisbane"
+              "Brisbane-GPU-Users"]
    :sydney []
    :melbourne []
    :perth []})

@@ -13,5 +13,6 @@
   :main weekly-meetups.core
   :uberjar-name "weekly-meetups.jar"
   :min-lein-version "2.0.0"
+  :warn-on-reflection true
   :ring {:handler weekly-meetups.web/app}
   :plugins [[lein-ring "0.8.5"]])
