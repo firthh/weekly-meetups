@@ -11,7 +11,7 @@
 (def number-of-weeks 1)
 
 (def meetups
-  {:brisbane ["clj-bne" 
+  {:brisbane ["clj-bne"
               "qldjvm"
               "AWS-Brisbane"
               "Brisbane-Net-User-Group"
@@ -27,13 +27,16 @@
               "The-Brisbane-Web-Design-Meetup-Group"
               "UXBrisbane"
               "Devops-Brisbane"
-              "Brisbane-GPU-Users"]
+              "Brisbane-GPU-Users"
+              "Brisbane-Big-Data-Analytics"
+              "Brisbane-Software-Testers-Meetup"
+              "Brisbane-Coder-Club"]
    :sydney []
    :melbourne []
    :perth []})
 
 ;;should need to change this
-(def meetup-url 
+(def meetup-url
   "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s&time=01012014,%dw")
 
 (def events-template
@@ -44,7 +47,7 @@
 
 ;;hacky code that does stuff
 (defn- get-meetup-events [api-key meetup]
-  (-> (format meetup-url api-key meetup number-of-weeks) 
+  (-> (format meetup-url api-key meetup number-of-weeks)
       slurp
       (json/read-str :key-fn keyword)
       :results))
@@ -71,8 +74,8 @@
   (->>(get-all-meetups api-key city)
       (map format-event)))
 
-(defn -main 
-  ([api-key] 
+(defn -main
+  ([api-key]
      (-main api-key "brisbane" output-file))
   ([api-key city]
      (-main api-key city output-file))
@@ -80,4 +83,3 @@
      (->> (get-events api-key (keyword city))
           events-to-html
           (spit output-file-name))))
-
