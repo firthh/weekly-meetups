@@ -14,11 +14,14 @@
   {:brisbane ["clj-bne"
               "qldjvm"
               "AWS-Brisbane"
+              "brisbane-elixir"
               "Brisbane-Net-User-Group"
               "Brisbane-Functional-Programming-Group"
               "Brisbane-Hacks-for-Humanity"
+              "Brisbane-Software-Testers-Meetup"
               "BrisRuby"
               "BrisJS"
+              "cocoaheads"
               "Agile-Brisbane"
               "hackbne"
               "Lean-Business-Strategies"
@@ -30,7 +33,8 @@
               "Brisbane-GPU-Users"
               "Brisbane-Big-Data-Analytics"
               "Brisbane-Software-Testers-Meetup"
-              "Brisbane-Coder-Club"]
+              "Brisbane-Coder-Club"
+              "Open-Knowledge-Brisbane-Meetup-Group"]
    :sydney []
    :melbourne []
    :perth []})
