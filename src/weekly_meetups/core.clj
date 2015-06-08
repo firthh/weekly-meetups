@@ -21,6 +21,7 @@
               "Brisbane-Software-Testers-Meetup"
               "BrisRuby"
               "BrisJS"
+              "Business-Analysts-Architects-Product-Owners-Brisbane"
               "cocoaheads"
               "Agile-Brisbane"
               "hackbne"
@@ -34,7 +35,8 @@
               "Brisbane-Big-Data-Analytics"
               "Brisbane-Software-Testers-Meetup"
               "Brisbane-Coder-Club"
-              "Open-Knowledge-Brisbane-Meetup-Group"]
+              "Open-Knowledge-Brisbane-Meetup-Group"
+              "Women-Who-Code-Brisbane"]
    :sydney []
    :melbourne []
    :perth []})
