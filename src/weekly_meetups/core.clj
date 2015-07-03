@@ -78,6 +78,7 @@
 
 (defn get-events [api-key city]
   (->>(get-all-meetups api-key city)
+      (sort-by :time)
       (map format-event)))
 
 (defn -main
