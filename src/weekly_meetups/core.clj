@@ -35,7 +35,6 @@
               "Devops-Brisbane"
               "Brisbane-GPU-Users"
               "Brisbane-Big-Data-Analytics"
-              "Brisbane-Software-Testers-Meetup"
               "Brisbane-Coder-Club"
               "Women-Who-Code-Brisbane"]
    :sydney []
