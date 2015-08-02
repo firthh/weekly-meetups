@@ -36,6 +36,7 @@
               "Brisbane-GPU-Users"
               "Brisbane-Big-Data-Analytics"
               "Brisbane-Coder-Club"
+              "Queensland-based-MonoTouch-and-Mono-for-Android"
               "Women-Who-Code-Brisbane"]
    :sydney []
    :melbourne []
