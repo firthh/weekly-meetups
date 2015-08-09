@@ -20,6 +20,7 @@
               "Brisbane-Functional-Programming-Group"
               "Brisbane-Hacks-for-Humanity"
               "Brisbane-Software-Testers-Meetup"
+              "Brisbane-Web-Accessibility"
               "BrisRuby"
               "BrisJS"
               "Business-Analysts-Architects-Product-Owners-Brisbane"
