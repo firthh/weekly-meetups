@@ -8,7 +8,7 @@
   (:gen-class))
 
 ;;configuration
-(def number-of-weeks 1)
+(def number-of-days 9)
 
 (def meetups
   {:brisbane ["clj-bne"
@@ -45,7 +45,7 @@
 
 ;;should need to change this
 (def meetup-url
-  "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s&time=01012014,%dw")
+  "http://api.meetup.com/2/events?sign=true&key=%s&group_urlname=%s&time=01012014,%dd")
 
 (def events-template
   "events.mustache")
@@ -55,7 +55,7 @@
 
 ;;hacky code that does stuff
 (defn- get-meetup-events [api-key meetup]
-  (-> (format meetup-url api-key meetup number-of-weeks)
+  (-> (format meetup-url api-key meetup number-of-days)
       slurp
       (json/read-str :key-fn keyword)
       :results))
